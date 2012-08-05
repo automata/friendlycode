@@ -58,7 +58,9 @@ define("main", function(require) {
     lineWrapping: true,
     lineNumbers: true,
     parse: function(html) {
-      return Slowparse.HTML(document, html, [TreeInspectors.forbidJS]);
+      // HACK: we want JS parsing/eval, so...
+      // return Slowparse.HTML(document, html, [TreeInspectors.forbidJS]);
+      return Slowparse.HTML(document, html);
     }
   });
   var relocator = Relocator(codeMirror);
